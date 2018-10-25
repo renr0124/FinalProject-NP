@@ -32,4 +32,9 @@ Plan:
     - Mesh all components (server, hosts, and program) together and make sure there are no issues with running across multiple computers and a server.
   * Week 6 
     - Go over demo and create presentation based behind it.
-Team members: Jim Garrison, Lee Gobin, Raymond Ren
+
+# Team members
+
+* Raymond Ren - Front-End game programmer
+* Jim Garrison - Backend and networking the game.
+* Lee Gobin - Front-End game programmer
