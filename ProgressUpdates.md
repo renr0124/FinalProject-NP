@@ -1,0 +1,15 @@
+﻿Progress Update (Week 1)
+Group: Raymond Ren, Jim Garrison, Lee Gobin. 
+Project: Multiplayer Tic-Tac-Toe
+
+Progress made this week:
+
+•	Windows Server set up offsite and made to be open to connections from outside clients.
+•	Tested chat program with server to verify chat's can be seen on both ends.
+•	Started work on modifying code to allow for multiple clients and have server be middleman only.
+
+Progress to be made in the coming week:
+
+•	Get started on UI and actual Tic-Tac-Toe game.
+•	Finish work on getting multiple clients and one server only middleman.
+•	Work out networking kinks associated with a game such as tic-tac-toe where there is going to be a buffer between messages.
