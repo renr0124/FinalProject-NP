@@ -37,4 +37,7 @@ Plan:
 
 * Raymond Ren - Front-End game programmer
 * Jim Garrison - Backend and networking the game.
-* Lee Gobin - Front-End game programmer
+* Lee Gobin - Front-End game 
+
+# Comments
+1. Be more specific about the deliverables. Think about what you are going to demo in the final presentation and complile a list of features to be delivered.
