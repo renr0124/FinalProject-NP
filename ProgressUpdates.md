@@ -30,3 +30,7 @@ Project: Multiplayer Tic-Tac-Toe
   1)Write the method for the server to take in inputs and evaluate it
   2)Maybe discuss the idea of a leader board system that stores Names and Points
         
+# Comments
+1. Make sure the formatting is not off
+2. Regarding the design, Both 1D and 2D would work and not much different in terms of design complexity and efficiency, thou 2D array on client might be easier and cleaner to manipulate. The more important thing to think about is the message exchanged between client and server and I don't see a clear solution for it.
+3. I would expect to see some codes pushed to master this week.
