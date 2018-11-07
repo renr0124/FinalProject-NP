@@ -12,11 +12,11 @@ Because there aren't enough tic-tac-toe multiplayer clones out there.
 
 How?
 
-We're going to use the power of python and networking to create an effective tic-tac-toe game that utilizes a central server to provide 2 clients with the ability to play against eachother in a high intensity multiplayer environment.
+We're going to use the power of python, Java, JavaFX, and networking to create an effective tic-tac-toe game that utilizes a central server to provide 2 clients with the ability to play against eachother in a high intensity multiplayer environment.
 
 # Deliverables: 
-1. 2 Clients (Computers)
-2. 1 Windows Server to communicate between the 2 Clients
+1. 2 Clients (Computers) - Game is client sided so both computers will have identical code. Computers use Java and JavaFX to make game run and look good to x users.
+2. 1 Windows Server to communicate between the 2 Clients - Only send/receive via socket, no game code involved Server will use Python for lightweight networking and ability to scale.
 
 Plan: 
   * Week 1 
@@ -35,9 +35,9 @@ Plan:
 
 # Team members
 
-* Raymond Ren - Front-End game programmer
-* Jim Garrison - Backend and networking the game.
-* Lee Gobin - Front-End game 
+* Raymond Ren - Back-End Game Programmer (Actual programming for the game)
+* Jim Garrison - Networking and Server Engineer (Making sure game is available via network and is scalable to x users)
+* Lee Gobin - Front-end Game (using JavaFX to make game look nice)
 
 # Comments
 1. Be more specific about the deliverables. Think about what you are going to demo in the final presentation and complile a list of features to be delivered.
