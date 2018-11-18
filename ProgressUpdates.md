@@ -29,8 +29,22 @@ Project: Multiplayer Tic-Tac-Toe
   Progress to be made in the coming week:
   1)Write the method for the server to take in inputs and evaluate it
   2)Maybe discuss the idea of a leader board system that stores Names and Points
+
+# Progress Update (Week 4)
+
+Progress Made this week:
+
+1. Got Server fully functioning and ready to be used as a buffer between x amounts of players using different sockets.
+2. Added some functionality to client program to further ability to scale game to x amount of players.
+3. Started work on basic functionality of the program itself for the user.
+
+Progress to be made in the coming week:
+
+1. Get basic functionality for the game finished and ready to be played in console.
+2. Make sure that networking for game is fully functional and has no glitches.
+3. Start looking into setting up GUI for the game to make it look pretty.
         
 # Comments
-1. Make sure the formatting is not off
-2. Regarding the design, Both 1D and 2D would work and not much different in terms of design complexity and efficiency, thou 2D array on client might be easier and cleaner to manipulate. The more important thing to think about is the message exchanged between client and server and I don't see a clear solution for it.
-3. I would expect to see some codes pushed to master this week.
+1. Make sure the formatting is not off (Done)
+2. Regarding the design, Both 1D and 2D would work and not much different in terms of design complexity and efficiency, thou 2D array on client might be easier and cleaner to manipulate. The more important thing to think about is the message exchanged between client and server and I don't see a clear solution for it. (Good Insight, will look into it.)
+3. I would expect to see some codes pushed to master this week. (Done)
