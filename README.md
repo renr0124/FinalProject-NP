@@ -15,7 +15,7 @@ How?
 We're going to use the power of python, Java, JavaFX, and networking to create an effective tic-tac-toe game that utilizes a central server to provide 2 clients with the ability to play against eachother in a high intensity multiplayer environment.
 
 # Deliverables: 
-1. 2 Clients (Computers) - Game is client sided so both computers will have identical code. Computers use Java and JavaFX to make game run and look good to x users.
+1. 2 Clients (Computers) - Game is client sided so both computers will have identical code. Computers use Python to make game run and look good to x users.
 2. 1 Windows Server to communicate between the 2 Clients - Only send/receive via socket, no game code involved Server will use Python for lightweight networking and ability to scale.
 
 Plan: 
