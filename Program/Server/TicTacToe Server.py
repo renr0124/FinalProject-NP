@@ -1,3 +1,4 @@
+#Author: Jim Garrison
 from socket import *
 
 serverPort = 25565
