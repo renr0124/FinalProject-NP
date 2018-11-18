@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+#Author: Jim Garrison
+>>>>>>> f3afcc43daa24095dc28cc79e04d0e25d4ad7698
 from socket import *
 
 serverPort = 25565
