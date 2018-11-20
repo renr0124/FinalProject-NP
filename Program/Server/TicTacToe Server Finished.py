@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-#Author: Jim Garrison
->>>>>>> f3afcc43daa24095dc28cc79e04d0e25d4ad7698
 from socket import *
 
 serverPort = 25565
@@ -19,9 +15,15 @@ connectionSocket, addr = serverSocket.accept()
 connectionSocket2, addr = serverSocket2.accept()
 
 while True:
-    sentence = (connectionSocket.recv(1024).decode() + '\n')
+    sentence = (connectionSocket.recv(1024).decode())
     print("Client 1: " + sentence)
-    connectionSocket2.send(sentence.encode())
-    sentence2 = (connectionSocket2.recv(1024).decode() + '\n')
+    if(sentence != ''):
+        connectionSocket2.send(sentence.encode())
+    else:
+        break
+    sentence2 = (connectionSocket2.recv(1024).decode())
     print("Client 2: " + sentence2)
-    connectionSocket.send(sentence2.encode())
+    if(sentence2 != 'no'):
+        connectionSocket.send(sentence2.encode())
+    else:
+        break
