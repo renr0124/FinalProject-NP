@@ -15,7 +15,7 @@ while True:
         return
 
 
-    def is_tie(mark, board):
+    def is_tie(board):
         if (board[0] != 1 and board[1] != 2 and board[2] != 3 and board[3] != 4 and board[4] != 5 and board[5] != 6 and
                 board[6] != 7 and board[7] != 8 and board[8] != 9):
             return True
@@ -24,6 +24,7 @@ while True:
 
 
     # print_grid()
+
 
     game = True
 
@@ -66,6 +67,7 @@ while True:
     while (game):
 
         mark = 'X'
+        print_game()
         while True:
             clientInput1 = input('Enter Value: ')
             clientInput = int(clientInput1)
@@ -82,7 +84,7 @@ while True:
             game = False
             break
 
-        if (is_tie(mark, board)):
+        if (is_tie(board)):
             print("The Match is a tie.")
             game = False
             break
@@ -101,13 +103,13 @@ while True:
             game = False
             break
 
-        if (is_tie(mark, board)):
+        if (is_tie(board)):
             print("The Match is a tie.")
             game = False
             break
-    clientSocket.close()
-    # answer = input("Would you like to play again? Yes or no.")
-    # clientSocket.send(answer.encode())
-    # if (answer.lower() != "yes"):
-        # print("Have a good day!")
-        # game = False
+    answer = clientSocket.recv(1024).decode()
+    print(answer)
+    if(answer != 'yes'):
+        print("Have a good day!")
+        game = False
+        break

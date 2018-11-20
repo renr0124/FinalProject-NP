@@ -15,7 +15,7 @@ while True:
         return
 
 
-    def is_tie(mark, board):
+    def is_tie(board):
         if(board[0] != 1 and board[1] != 2 and board[2] != 3 and board[3] != 4 and board[4] != 5 and board[5] != 6 and board[6] != 7 and board[7] != 8 and board[8] != 9 ):
             return True
         else:
@@ -42,7 +42,7 @@ while True:
             return True
 
     # 012 | 345 | 678 | 036 | 147 | 258 | 048 | 246
-    def win_check (board):
+    def win_check (mark, board):
         if((board[0] == mark and board[1] == mark and board[2] == mark) or
                 (board[3] == mark and board[4] == mark and board[5] == mark) or
                 (board[6] == mark and board[7] == mark and board[8] == mark) or
@@ -60,44 +60,52 @@ while True:
     while(game):
         mark = 'X'
         oppInput = clientSocket.recv(1024)
+
         oppInput = int(oppInput)
         board[oppInput - 1] = mark
 
         print_game()
 
-        if (is_tie(mark, board)):
-            print("The Match is a tie.")
-            break
-
         if (win_check(mark, board)):
             print("The winner is " + mark)
-            clientSocket.send(''.encode())
+            game = False
+            break
+        if (is_tie(board)):
+            print("The Match is a tie.")
+            game = False
             break
         mark = 'O'
+
         while True:
             clientInput = input('Enter Value: ')
             user_input = clientInput
-            user_input = int(user_input) # If I put in 7 it creates user_input = 7
+            user_input = int(user_input)
             #user_input = user_input - 1
-            print(user_input) # would print 7
+            print(user_input)
 
-            if (is_tie(mark, board)):
-                print("The Match is a tie.")
-                break
-
-            if (win_check(mark, board)):
-                print("The winner is " + mark)
-                clientSocket.send(''.encode())
-                break
-
-            if(is_legal(user_input, board)): # is_legal(7, board)
+            if(is_legal(user_input, board)):
                 clientSocket.send(clientInput.encode())
                 board[user_input - 1] = mark
                 break
             else:
                 print("That is not a legal move. Please try again!")
+        if (win_check(mark, board)):
+            print("The winner is " + mark)
+            game = False
+            break
+
+        if (is_tie(board)):
+            print("The Match is a tie.")
+            game = False
+            break
+
         print_game()
-    clientSocket.close()
-    # if(clientSocket.recv(1024).lower() != "yes"):
-        # print("Have a good day!")
-        # game = False
+
+    answer = input("Would you like to play again? Yes or no.")
+    answer = answer.lower()
+    clientSocket.send(answer.encode())
+
+    if (answer != "yes"):
+        print("Have a good day!")
+        game = False
+        break
