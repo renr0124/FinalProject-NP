@@ -64,6 +64,8 @@ while True:
 # Start
     while(game):
         mark = 'X'
+
+        # Receive from Server
         oppInput = clientSocket.recv(1024)
 
         oppInput = int(oppInput)
@@ -71,6 +73,7 @@ while True:
 
         print_game()
 
+        # Check game status
         if win_check(mark, board):
             print("The winner is " + mark)
             game = False
@@ -81,6 +84,7 @@ while True:
             break
         mark = 'O'
 
+        # Sending to Server
         while True:
             clientInput = input('Enter Value: ')
             user_input = clientInput
@@ -105,10 +109,13 @@ while True:
 
         print_game()
 
+    # Ask to play again
     answer = input("Would you like to play again? Yes or no.")
     answer = answer.lower()
+    # Send answer to Server
     clientSocket.send(answer.encode())
 
+    # Break from loop and end if not YES
     if answer != "yes":
         print("Have a good day!")
         game = False
