@@ -43,6 +43,20 @@ Progress to be made in the coming week:
 1. Get basic functionality for the game finished and ready to be played in console.
 2. Make sure that networking for game is fully functional and has no glitches.
 3. Start looking into setting up GUI for the game to make it look pretty.
+
+# Progress Update (Week 5)
+
+Progress Made this week:
+
+1. Server is fully functional and available to have multiple games running at once with some tweaking.
+2. Game is fully functional and networked via console input.
+3. Both client have no issues with running and playing the game, as well as replaying the game over and over again without closing socket.
+
+Progress to be made in the coming week:
+
+1. Get game to be fully graphical instead of through the console so as to make the game look nice.
+2. Run error checking to verify that nothing is going wrong on the networking side.
+3. Start getting demo ready for next week.
         
 # Comments
 1. Make sure the formatting is not off (Done)
