@@ -48,7 +48,7 @@ Plan:
 ## How to Install
 
 1. Download Python from [here](https://www.python.org/downloads/).
-2. Download zip of github and create a Pycharm project. (Download PyCharm [Here](https://www.jetbrains.com/pycharm/download/).
+2. Download zip of github and create a Pycharm project. (Download PyCharm [Here](https://www.jetbrains.com/pycharm/download/).)
 3. Make sure Python is working with PyCharm so that code can be run. 
 4. Run Program and Client 1 should receive an input to start the game.
 
