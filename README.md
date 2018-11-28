@@ -37,7 +37,7 @@ Plan:
 
 * Raymond Ren - Back-End Game Programmer (Actual programming for the game)
 * Jim Garrison - Networking and Server Engineer (Making sure game is available via network and is scalable to x users)
-* Lee Gobin - Front-end Game (using JavaFX to make game look nice)
+* Lee Gobin - Front-end Game (using Python tkinter to make game look nice)
 
 # Comments
 1. Be more specific about the deliverables. Think about what you are going to demo in the final presentation and complile a list of features to be delivered. (RESOLVED)
