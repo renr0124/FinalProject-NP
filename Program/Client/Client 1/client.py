@@ -1,13 +1,15 @@
 from socket import *
-import tkinter
-
-#TESTING ZONE
 
 serverName = '47.18.60.15'
 serverPort = 25565
 clientSocket = socket(AF_INET, SOCK_STREAM)
 clientSocket.connect((serverName, serverPort))
 
+win_x = 0
+win_o = 0
+tie_count = 0
+win_x_bool = False
+win_o_bool = False
 # Start Do-While
 while True:
 
@@ -21,6 +23,7 @@ while True:
         print("---|---|---")
         print(" 7 | 8 | 9 ")
 
+
     # check is current game is tie
     def is_tie(board):
         if (board[0] != 1 and board[1] != 2 and board[2] != 3 and board[3] != 4 and board[4] != 5 and board[5] != 6 and
@@ -28,6 +31,7 @@ while True:
             return True
         else:
             return False
+
 
     # boolean value for game
     game = True
@@ -38,6 +42,7 @@ while True:
     # player mark [X, O]
     mark = " "
 
+
     # prints current board with corresponding player marks
     def print_game():
         print(board[0], " |", board[1], "|", board[2])
@@ -47,12 +52,14 @@ while True:
         print(board[6], " |", board[7], "|", board[8])
         print()
 
+
     # return True or False depending on if the space Player wants to occupy is already taken
     def is_legal(mark, board):
         if (board[mark - 1] != mark):
             return False
         else:
             return True
+
 
     # 012 | 345 | 678 | 036 | 147 | 258 | 048 | 246 <-Ignore
     # iterate through all possible winning combinations and check is winner is determined
@@ -72,66 +79,98 @@ while True:
 
         # </Defining Functions>
 
+
     # START OF GAME
     while (game):
-
+        win_o_bool = False
+        win_x_bool = False
         # Player Mark is X
         mark = 'X'
         # Display the board
         print_game()
 
         # Start of Loop. Sending to server
-        #while True:
-            #clientInput1 = input('Enter Value: ')   # prompt for user to enter value, store at clientInput1
-            #clientInput = int(clientInput1)         # cast clientInput1 to INTEGER value, stored at clientInput
+        while True:
+            clientInput1 = input('Enter Value: ')  # prompt for user to enter value, store at clientInput1
+            clientInput = int(clientInput1)  # cast clientInput1 to INTEGER value, stored at clientInput
 
-            #if (is_legal(clientInput, board)):      # check if the player entry isLegal:
-               # clientSocket.send(clientInput1.encode())    # If True, send input to Server, and break from Loop
-               # board[clientInput - 1] = mark               # Subtract 1 because arrays index at 0
-               # break
-           # else:   # If false,  return to Start of Loop and continue until a legal input is provided
-            #    print("That is not a legal move. Please try again!")
+            if (is_legal(clientInput, board)):  # check if the player entry isLegal:
+                clientSocket.send(clientInput1.encode())  # If True, send input to Server, and break from Loop
+                board[clientInput - 1] = mark  # Subtract 1 because arrays index at 0
+                break
+            else:  # If false,  return to Start of Loop and continue until a legal input is provided
+                print("That is not a legal move. Please try again!")
         # end loop
 
-        print_game()    # Print Game with clientInput
+        print_game()  # Print Game with clientInput
 
         # <Game Check>
         # Check for winners. If winner is found, break from game-loop
         if (win_check(mark, board)):
             print("The winner is " + mark)
+            if mark == 'X':
+                win_x_bool = True
+                win_x = win_x + 1
+            else:
+                win_o_bool = True
+                win_o = win_o + 1
+
+            print("X Has won " + str(win_x))
+            print("O Has won " + str(win_o))
+            print("There have been " + str(tie_count) + " ties!")
             game = False
             break
         # Check if game is a tie. If is Tie, break from game-loop
         if (is_tie(board)):
             print("The Match is a tie.")
+            tie_count += 1
+            print("X has won: " + str(win_x))
+            print("O has won: " + str(win_o))
+            print("There have been " + str(tie_count) + " ties")
             game = False
             break
         # </Game Check>
 
         # Switch to opposing client. Receiving from server
-        mark = 'O'     # Mark is changed to O to match corresponding client mark
-        clientInput = clientSocket.recv(1024)   # Receive
-        clientInput = int(clientInput)          # cast input to INTEGER
-        board[clientInput - 1] = mark           # subtract 1 because index at 0, not 1
+        mark = 'O'  # Mark is changed to O to match corresponding client mark
+        clientInput = clientSocket.recv(1024)  # Receive
+        clientInput = int(clientInput)  # cast input to INTEGER
+        board[clientInput - 1] = mark  # subtract 1 because index at 0, not 1
 
-        print_game()    # display current board with all player marks
+        print_game()  # display current board with all player marks
 
         #   check winner
         if (win_check(mark, board)):
             print("The winner is " + mark)
+            if mark == 'X':
+                win_x_bool = True
+                win_x = win_x + 1
+            else:
+                win_o_bool = True
+                win_o = win_o + 1
+            print("X Has won " + str(win_x))
+            print("O Has won " + str(win_o))
+            print("There have been " + str(tie_count) + " ties.")
             game = False
             break
 
         # check tie
         if (is_tie(board)):
             print("The Match is a tie.")
+            tie_count += 1
+            print("X Has won " + str(win_x))
+            print("O Has won " + str(win_o))
+            print("There have been " + str(tie_count) + " ties.")
             game = False
             break
 
     # receive answer to "play again?"
+    print(win_o_bool)
+    if win_o_bool:
+        clientSocket.send(' '.encode())
     answer = clientSocket.recv(1024).decode()
     print(answer)
-    if(answer != 'yes'):    # if answer is not YES, break from first loop, and end.
+    if (answer != 'yes'):  # if answer is not YES, break from first loop, and end.
         print("Have a good day!")
         game = False
         break
