@@ -58,3 +58,9 @@ Plan:
 2. Hit Play Game and the interface will pop up in a 3x3 grid.
 3. Play Tic-Tac-Toe by clicking a box in the 3x3 grid.
 4. First player to get a diagnol of their mark wins the game.
+
+## Features
+
+1. Ability to replay.
+2. Game is scalable to x amount of pairs.
+3. Retro style (Looks like it's from the 90's, when Dr. Pham went to school.)
