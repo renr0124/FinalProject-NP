@@ -1,5 +1,5 @@
 from tkinter import *
-
+index = 0
 buttonList = []
 
 myMark = 'X'
@@ -10,6 +10,7 @@ for i in range(9):
 mySize = 1
 
 def ttt(buttons,idx):
+    index = 0
     buttons.config(text = myMark,state = DISABLED)
     buttonList[idx] = myMark
     print(buttonList)
@@ -20,7 +21,7 @@ button1Str = ''
 tk = Tk()
 tk.resizable(False,False)
 
-button1 = Button(tk,text="",width = mySize*3,height = mySize, font=('Times 50 bold'),bg='gray',fg='white',command=lambda:ttt(button1,0))
+button1 = Button(tk,text="",width = mySize*3,height = mySize,  font=('Times 50 bold'),bg='gray',fg='white',command=lambda:ttt(button1,0))
 button1.grid(row=1,column=0)
 
 
@@ -50,18 +51,6 @@ button9.grid(row=3,column=2)
 
 
 tk.mainloop()
-
-#def initialize_board():
- #   top = Tk()
-  # top.title("Tic-Tac-Toe")
-  #  top.resizable(False, False)
-  #  w = Frame(top, bg="grey", height=500, width=500)
-  #  w.pack()
-
-
-   # top.mainloop()
-
-#initialize_board()
 
 
 

@@ -1,11 +1,16 @@
-from socket import *
 
-import tkinter
+from socket import *
 
 serverName = '47.18.60.15'
 serverPort = 25569
 clientSocket = socket(AF_INET, SOCK_STREAM)
 clientSocket.connect((serverName, serverPort))
+
+win_x = 0
+win_o = 0
+tie_count = 0
+win_o_bool = False
+win_x_bool = False
 
 # Start Do-While
 while True:
@@ -63,30 +68,45 @@ while True:
             return False
     # </Define Function>
 
-# Start
+    # Start
     while(game):
         mark = 'X'
 
         # Receive from Server
         oppInput = clientSocket.recv(1024)
-
         oppInput = int(oppInput)
         board[oppInput - 1] = mark
 
         print_game()
 
         # Check game status
-        if win_check(mark, board):
+        if (win_check(mark, board)):
             print("The winner is " + mark)
+            if mark == 'X':
+                win_x = win_x + 1
+                win_x_bool = True
+            elif mark == 'O':
+                win_o_bool = True
+                win_o = win_o + 1
+            print("X Has won " + str(win_x))
+            print("O Has won " + str(win_o))
+            print("There have been " + str(tie_count) + " ties.")
             game = False
             break
-        if is_tie(board):
+
+        if (is_tie(board)):
             print("The Match is a tie.")
+            tie_count += 1
+            print("X Has won " + str(win_x))
+            print("O Has won " + str(win_o))
+            print("There have been " + str(tie_count) + " ties.")
             game = False
             break
-        mark = 'O'
 
         # Sending to Server
+
+        mark = 'O'
+
         while True:
             clientInput = input('Enter Value: ')
             user_input = clientInput
@@ -99,26 +119,47 @@ while True:
                 break
             else:
                 print("That is not a legal move. Please try again!")
-        if win_check(mark, board):
-            print("The winner is " + mark)
-            game = False
-            break
-
-        if is_tie(board):
-            print("The Match is a tie.")
-            game = False
-            break
 
         print_game()
 
+        if (win_check(mark, board)):
+            print("The winner is " + mark)
+            if mark == 'X':
+                win_x_bool = True
+                win_x = win_x + 1
+            else:
+                win_o_bool = True
+                win_o = win_o + 1
+            print("X Has won " + str(win_x))
+            print("O Has won " + str(win_o))
+            print("There have been " + str(tie_count) + " ties.")
+            game = False
+            break
+
+        if (is_tie(board)):
+            print("The Match is a tie.")
+            tie_count += 1
+            print("X Has won " + str(win_x))
+            print("O Has won " + str(win_o))
+            print("There have been " + str(tie_count) + " ties.")
+            game = False
+            break
+
     # Ask to play again
+    if win_o_bool:
+        useless = clientSocket.recv(1024).decode()
+    win_o_bool = False
     answer = input("Would you like to play again? Yes or no.")
     answer = answer.lower()
+
     # Send answer to Server
     clientSocket.send(answer.encode())
 
-    # Break from loop and end if not YES
     if answer != "yes":
         print("Have a good day!")
         game = False
-        break
+        exit()
+    else:
+        game = True
+    game = True
+# Break from loop and end if not YES

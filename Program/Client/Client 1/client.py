@@ -81,16 +81,16 @@ while True:
         print_game()
 
         # Start of Loop. Sending to server
-        while True:
-            clientInput1 = input('Enter Value: ')   # prompt for user to enter value, store at clientInput1
-            clientInput = int(clientInput1)         # cast clientInput1 to INTEGER value, stored at clientInput
+        #while True:
+            #clientInput1 = input('Enter Value: ')   # prompt for user to enter value, store at clientInput1
+            #clientInput = int(clientInput1)         # cast clientInput1 to INTEGER value, stored at clientInput
 
-            if (is_legal(clientInput, board)):      # check if the player entry isLegal:
-                clientSocket.send(clientInput1.encode())    # If True, send input to Server, and break from Loop
-                board[clientInput - 1] = mark               # Subtract 1 because arrays index at 0
-                break
-            else:   # If false,  return to Start of Loop and continue until a legal input is provided
-                print("That is not a legal move. Please try again!")
+            #if (is_legal(clientInput, board)):      # check if the player entry isLegal:
+               # clientSocket.send(clientInput1.encode())    # If True, send input to Server, and break from Loop
+               # board[clientInput - 1] = mark               # Subtract 1 because arrays index at 0
+               # break
+           # else:   # If false,  return to Start of Loop and continue until a legal input is provided
+            #    print("That is not a legal move. Please try again!")
         # end loop
 
         print_game()    # Print Game with clientInput
