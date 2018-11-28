@@ -64,6 +64,7 @@ Plan:
 1. Ability to replay.
 2. Game is scalable to x amount of pairs.
 3. Retro style (Looks like it's from the 90's, when Dr. Pham went to school.)
+4. Win counter and tie counter to keep track of each game in the set!
 
 ## Demo of Gameplay
 
