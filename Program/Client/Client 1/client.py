@@ -20,7 +20,6 @@ while True:
         print(" 4 | 5 | 6 ")
         print("---|---|---")
         print(" 7 | 8 | 9 ")
-        return
 
     # check is current game is tie
     def is_tie(board):
@@ -46,6 +45,7 @@ while True:
         print(board[3], " |", board[4], "|", board[5])
         print("---|---|---")
         print(board[6], " |", board[7], "|", board[8])
+        print()
 
     # return True or False depending on if the space Player wants to occupy is already taken
     def is_legal(mark, board):

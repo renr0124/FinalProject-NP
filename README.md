@@ -12,7 +12,7 @@ Because there aren't enough tic-tac-toe multiplayer clones out there.
 
 How?
 
-We're going to use the power of python, Java, JavaFX, and networking to create an effective tic-tac-toe game that utilizes a central server to provide 2 clients with the ability to play against eachother in a high intensity multiplayer environment.
+We're going to use the power of python and networking to create an effective tic-tac-toe game that utilizes a central server to provide 2 clients with the ability to play against eachother in a high intensity multiplayer environment.
 
 # Deliverables: 
 1. 2 Clients (Computers) - Game is client sided so both computers will have identical code. Computers use Python to make game run and look good to x users.
@@ -42,3 +42,19 @@ Plan:
 # Comments
 1. Be more specific about the deliverables. Think about what you are going to demo in the final presentation and complile a list of features to be delivered. (RESOLVED)
 2. You should also think about a P2P architecture rather than having a dedicated server, unless you want more than 1 pair to play together at the same time. This might be a good extension of the game. (Still effectively Client-server, but game is run via server for maximum performance and ability to scale to x users.)
+
+# Getting Started
+
+## How to Install
+
+1. Download Python from [here](https://www.python.org/downloads/).
+2. Download zip of github and create a Pycharm project. (Download PyCharm [Here](https://www.jetbrains.com/pycharm/download/).)
+3. Make sure Python is working with PyCharm so that code can be run. 
+4. Run Program and Client 1 should receive an input to start the game.
+
+## How to Play
+
+1. Run Program via How to install tutorial.
+2. Hit Play Game and the interface will pop up in a 3x3 grid.
+3. Play Tic-Tac-Toe by clicking a box in the 3x3 grid.
+4. First player to get a diagnol of their mark wins the game.
