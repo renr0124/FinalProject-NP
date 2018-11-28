@@ -1,5 +1,7 @@
 from socket import *
 
+import tkinter
+
 serverName = '47.18.60.15'
 serverPort = 25569
 clientSocket = socket(AF_INET, SOCK_STREAM)

@@ -1,4 +1,7 @@
 from socket import *
+import tkinter
+
+#TESTING ZONE
 
 serverName = '47.18.60.15'
 serverPort = 25565
