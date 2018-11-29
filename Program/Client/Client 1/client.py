@@ -169,7 +169,6 @@ while True:
     if win_o_bool:
         clientSocket.send(' '.encode())
     answer = clientSocket.recv(1024).decode()
-    print(answer)
     if (answer != 'yes'):  # if answer is not YES, break from first loop, and end.
         print("Have a good day!")
         game = False

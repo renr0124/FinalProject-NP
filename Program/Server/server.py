@@ -22,7 +22,9 @@ print('The server is ready to connect to using ports: ' + serverPortStr + " and 
 
 # Accepts connection so that actual game can be started.
 connectionSocket, addr = serverSocket.accept()
+print("Client 1 Connected.")
 connectionSocket2, addr = serverSocket2.accept()
+print("Client 2 Connected")
 
 # Infinite loop that allows transmissions to be received and sent
 # unless the clients close the connections.
